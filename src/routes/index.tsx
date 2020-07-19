@@ -7,7 +7,13 @@ import SignUp from '../pages/SignUp';
 const Auth = createStackNavigator();
 
 const AuthRotes: React.FC = () => (
-  <Auth.Navigator>
+  <Auth.Navigator
+    // aqui no screenOptions dá pra customizar tudo do header:
+    screenOptions={{
+      headerShown: false,
+      cardStyle: { backgroundColor: '#312e38' },
+    }}
+  >
     <Auth.Screen name="SignIn" component={SignIn} />
     <Auth.Screen name="SignUp" component={SignUp} />
   </Auth.Navigator>
