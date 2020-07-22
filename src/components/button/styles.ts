@@ -3,7 +3,7 @@ import { RectButton } from 'react-native-gesture-handler';
 
 // entre parênteses pq é um componente q vem de fora do react native
 export const Container = styled(RectButton)`
-  width: 100%;
+  /* width: 100%; */
   height: 60px;
   background: #FF9000;
   border-radius: 10px;
