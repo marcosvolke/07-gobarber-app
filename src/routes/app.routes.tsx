@@ -9,7 +9,7 @@ const AppRoutes: React.FC = () => (
   <App.Navigator
     // aqui no screenOptions dá pra customizar tudo do header:
     screenOptions={{
-      // headerShown: false,
+      headerShown: false,
       cardStyle: { backgroundColor: '#312e38' },
     }}
   >
