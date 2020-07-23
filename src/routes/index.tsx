@@ -1,22 +1,15 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
 
-import SignIn from '../pages/SignIn';
-import SignUp from '../pages/SignUp';
+import AuthRoutes from './auth.routes';
+import AppRoutes from './app.routes';
 
-const Auth = createStackNavigator();
+import { useAuth } from '../context/AuthContext';
 
-const AuthRotes: React.FC = () => (
-  <Auth.Navigator
-    // aqui no screenOptions dá pra customizar tudo do header:
-    screenOptions={{
-      headerShown: false,
-      cardStyle: { backgroundColor: '#312e38' },
-    }}
-  >
-    <Auth.Screen name="SignIn" component={SignIn} />
-    <Auth.Screen name="SignUp" component={SignUp} />
-  </Auth.Navigator>
-);
+const Routes: React.FC = () => {
+  // se eu tiver usuário dentro do provider, tá logado, passo as rotas do app, senão passo as rotas de auth
+  const { user } = useAuth();
 
-export default AuthRotes;
+  return user ? <AppRoutes /> : <AuthRoutes />;
+}
+
+export default Routes;
