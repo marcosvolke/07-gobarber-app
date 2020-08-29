@@ -40,9 +40,14 @@ const AuthProvider: React.FC = ({ children }) => {
         '@GoBarber:user',
       ]);
 
+      // console.log(token[0]);
+      // console.log(token[1]);
+      // console.log(user[0]);
+      // console.log(user[1]);
+
       if (token[1] && user[1]) {
         //define header padrao para todas as requisicoes - executa quando dá F5/refresh na página
-        api.defaults.headers.authorization = `Bearer ${token}`;
+        api.defaults.headers.authorization = `Bearer ${token[1]}`;
 
         setData({ user: JSON.parse(user[1]), token: token[1] });
       }
